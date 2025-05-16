@@ -16,9 +16,8 @@ body, button {
 }
 
 .left-menu {
-  padding: 20px 0 32px;
+  padding: 20px 0 10px;
   background-color: #1e1f29;
-  width: 72px;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -42,6 +41,8 @@ body, button {
 }
 
 .btn-close {
+  margin-left: auto;
+  padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -69,4 +70,30 @@ body, button {
   border: 1px solid #afb2bf;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: #fafafa;
+  width: 100%;
+  padding: 19px 40px;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: #2e2d3d;
+}
+
+.nav-image {
+  margin-right: 12px;
 }
