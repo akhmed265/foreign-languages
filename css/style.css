@@ -104,3 +104,7 @@ body, button {
 .nav-image {
   margin-right: 12px;
 }
+
+.main-container {
+  background-color: #16171d;
+}
