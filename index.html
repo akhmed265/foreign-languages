@@ -21,21 +21,42 @@
         <div class="courses-content">
           <header class="courses-header">
             <div class="header-profile-info">
-              <div class="user-image">
-                <img src="./img/avatar.jpg" alt="avatar" class="avatar" />
-              </div>
-              <span class="user-name">Ахмед Malachiyev</span>
+              <div class="user-info">
+                <div class="user-info__main">
+                  <img src="./img/avatar.jpg" alt="avatar" class="avatar" />
+                  <span class="user-name">Ахмед<br />Malachiyev</span>
+                </div>
 
-              <div class="user-card">
-                <button class="_card_negrr_42">
-                  <span class="_number_negrr_77">7%</span>
-                  <span class="_numberTitle_negrr_87">Уровень навыков</span>
-                </button>
-                <input type="text" id="user-input" placeholder="Напиши..." class="user-chat">
+                <div class="user-card">
+                  <button class="level-skill">
+                    <img
+                      src="./img/skill.svg"
+                      alt=""
+                      class="level-skill__image"
+                    />
+                    <span class="level-skill_number">7%</span>
+                    <span class="level-skill_text">Уровень навыков</span>
+                    <a href="#" class="user-card__more">
+                      <img
+                        src="./img/more.svg"
+                        alt="Больше"
+                        class="more-image"
+                      />
+                    </a>
+                  </button>
+
+                  <div class="chat" id="chat">
+                    <a href="https://wa.me/79887880672" class="chat-btn"
+                      >Связаться c наставником</a
+                    >
+                    <img src="./img/arrow-grey.svg" alt="arrow" class="caht-arrow">
+                  </div>
+                </div>
               </div>
 
-              <div class="container-activity" id="activity">
-                
+              <div class="container-activity">
+                <h3 class="activity-title">Ваша активность</h3>
+                <div class="activity-grid" id="activityGrid"></div>
               </div>
             </div>
           </header>
@@ -45,4 +66,4 @@
 
     <script src="./js/script.js"></script>
   </body>
-</html>
+</html>#4d5064
