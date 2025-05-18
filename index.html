@@ -28,14 +28,30 @@
                 </div>
 
                 <div class="user-card">
-                  <button class="level-skill">
+                  <div class="completed-card card-stat">
+                    <img
+                      src="./img/completed.svg"
+                      alt=""
+                      class="completed-image card-stat__image"
+                    />
+                    <span class="completed__number card-stat__number">7</span>
+                    <span class="completed__text card-stat__text"
+                      >Пройдено уроков</span
+                    >
+                  </div>
+
+                  <button class="level-skill card-stat">
                     <img
                       src="./img/skill.svg"
                       alt=""
-                      class="level-skill__image"
+                      class="level-skill__image card-stat__image"
                     />
-                    <span class="level-skill_number">7%</span>
-                    <span class="level-skill_text">Уровень навыков</span>
+                    <span class="level-skill__number card-stat__number"
+                      >7%</span
+                    >
+                    <span class="level-skill__text card-stat__text"
+                      >Уровень навыков</span
+                    >
                     <a href="#" class="user-card__more">
                       <img
                         src="./img/more.svg"
@@ -49,14 +65,37 @@
                     <a href="https://wa.me/79887880672" class="chat-btn"
                       >Связаться c наставником</a
                     >
-                    <img src="./img/arrow-grey.svg" alt="arrow" class="caht-arrow">
+                    <img
+                      src="./img/arrow-grey.svg"
+                      alt="arrow"
+                      class="caht-arrow"
+                    />
                   </div>
                 </div>
               </div>
 
-              <div class="container-activity">
-                <h3 class="activity-title">Ваша активность</h3>
-                <div class="activity-grid" id="activityGrid"></div>
+              <div class="container-activity" id="container-activity">
+                <table id="activity">
+                  <caption>
+                    Активность за Май
+                  </caption>
+                  <tr>
+                    <th>Пн</th>
+                    <th>Вт</th>
+                    <th>Ср</th>
+                    <th>Чт</th>
+                    <th>Пт</th>
+                    <th>Сб</th>
+                    <th>Вс</th>
+                  </tr>
+                </table>
+                <div class="legend">
+                  <div>Слабая<span class="activity-0"></span></div>
+                  <div><span class="activity-1"></span></div>
+                  <div><span class="activity-2"></span></div>
+                  <div><span class="activity-3"></span></div>
+                  <div><span class="activity-4"></span>Высокая</div>
+                </div>
               </div>
             </div>
           </header>
@@ -66,4 +105,5 @@
 
     <script src="./js/script.js"></script>
   </body>
-</html>#4d5064
+</html>
+#4d5064

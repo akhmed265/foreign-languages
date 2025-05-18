@@ -25,27 +25,63 @@ function sendToWhatsApp() {
   }
 }
 
+//Activity//
+const table = document.querySelector("table");
+const year = 2025;
+const month = 4; // Февраль (0–11)
+const daysInMonth = new Date(year, month + 1, 0).getDate(); // 31 дней
+const firstDay = new Date(year, month, 1).getDay(); // 6 (сб)
+const today = 18; // Сегодня 18 Март 2025
 
-// Генерация данных активности
-const activityData = {};
-const startDate = new Date('2024-01-01');
-for (let i = 0; i < 365; i++) {
-  const date = new Date(startDate);
-  date.setDate(startDate.getDate() + i);
-  const dateStr = date.toISOString().split('T')[0];
-  activityData[dateStr] = Math.floor(Math.random() * 5); // 0–4 события
+let day = 1;
+let row = document.createElement("tr");
+
+// Заполняем пустые ячейки до первого дня месяца
+for (let i = 0; i < (firstDay || 7) - 1; i++) {
+  const cell = document.createElement("td");
+  row.appendChild(cell);
 }
 
-// Создание сетки
-const grid = document.getElementById('activityGrid');
-for (let i = 0; i < 365; i++) {
-  const date = new Date(startDate);
-  date.setDate(startDate.getDate() + i);
-  const dateStr = date.toISOString().split('T')[0];
-  const level = activityData[dateStr] || 0;
+// Массив для текстового описания уровней активности
+const activityLabels = [
+  "Нет активности",
+  "Низкая активность",
+  "Средняя активность",
+  "Высокая активность",
+  "Очень высокая активность",
+];
 
-  const day = document.createElement('div');
-  day.className = `day level-${level}`;
-  day.setAttribute('data-tooltip', `${dateStr}: ${level} событий`);
-  grid.appendChild(day);
+// Заполняем дни месяца
+for (let i = 0; i < daysInMonth; i++) {
+  if (row.children.length === 7) {
+    table.appendChild(row);
+    row = document.createElement("tr");
+  }
+  const cell = document.createElement("td");
+  cell.textContent = day;
+
+  if (day <= today) {
+    // Для прошедших и текущего дня добавляем активность
+    const activityLevel = Math.floor(Math.random() * 5);
+    cell.classList.add(`activity-${activityLevel}`);
+    cell.setAttribute("title", `День ${day}: ${activityLabels[activityLevel]}`);
+    // Выделяем текущий день
+    if (day === today) {
+      cell.classList.add("today");
+    }
+  } else {
+    // Для будущих дней добавляем класс future и убираем активность
+    cell.classList.add("future");
+    cell.setAttribute("title", `День ${day}: Не наступил`);
+  }
+
+  row.appendChild(cell);
+  day++;
 }
+
+// Заполняем оставшиеся ячейки в последней строке
+while (row.children.length < 7) {
+  row.appendChild(document.createElement("td"));
+}
+table.appendChild(row);
+//Activity END//
