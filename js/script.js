@@ -31,7 +31,7 @@ const year = 2025;
 const month = 4; // Февраль (0–11)
 const daysInMonth = new Date(year, month + 1, 0).getDate(); // 31 дней
 const firstDay = new Date(year, month, 1).getDay(); // 6 (сб)
-const today = 18; // Сегодня 18 Март 2025
+const today = 29; // Сегодня 18 Март 2025
 
 let day = 1;
 let row = document.createElement("tr");
@@ -85,3 +85,51 @@ while (row.children.length < 7) {
 }
 table.appendChild(row);
 //Activity END//
+
+//Progress//
+document.addEventListener('DOMContentLoaded', function() {
+  const courseBlock = document.querySelector('.courses__item');
+  const progressFill = courseBlock.querySelector('.progress-fill');
+  const progressText = courseBlock.querySelector('.progress-text');
+  const courseButton = courseBlock.querySelector('.courses__button');
+
+  const courseId = 'english_beginners';
+  const totalLessons = 10;
+
+  let lessonsCompleted = parseInt(localStorage.getItem(`progress_${courseId}`)) || 0;
+
+  function updateProgress() {
+      const progressPercentage = (lessonsCompleted / totalLessons) * 100;
+      progressFill.style.width = `${progressPercentage}%`;
+      progressText.textContent = `Просмотрено ${lessonsCompleted}/${totalLessons} уроков`;
+
+      if (progressPercentage < 30) {
+          progressFill.style.background = '#ff4d4d';
+      } else if (progressPercentage < 70) {
+          progressFill.style.background = '#ffbf00';
+      } else {
+          progressFill.style.background = '#4caf50';
+      }
+
+      localStorage.setItem(`progress_${courseId}`, lessonsCompleted);
+
+      courseButton.textContent = lessonsCompleted === totalLessons ? 'Завершено' : 'Продолжить';
+      courseButton.style.background = lessonsCompleted === totalLessons ? '#28a745' : '#007bff';
+      courseButton.disabled = lessonsCompleted === totalLessons;
+  }
+
+  courseButton.addEventListener('click', () => {
+      if (lessonsCompleted < totalLessons) {
+          lessonsCompleted++;
+          updateProgress();
+      }
+  });
+
+  courseBlock.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      lessonsCompleted = 0;
+      updateProgress();
+  });
+
+  updateProgress();
+});

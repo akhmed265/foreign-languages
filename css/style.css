@@ -339,3 +339,82 @@ caption {
   text-align: center;
 }
 /*Activity END*/
+
+/*Courses*/
+.courses__list  {
+  display: flex;
+  list-style: none;
+}
+
+.courses__item {
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.courses__title {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-text {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.courses__button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+.courses__button:hover {
+  background: #0056b3;
+}
+
+.courses__button:disabled {
+  background: #28a745;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .courses__item {
+      margin: 10px;
+      padding: 15px;
+  }
+
+  .courses__title {
+      font-size: 1.2em;
+  }
+
+  .courses__button {
+      width: 100%;
+      text-align: center;
+  }
+}
