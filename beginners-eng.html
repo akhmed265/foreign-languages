@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Beginners</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="sidebar-container" class="left-menu__container"></div>
+
+      <div class="main-container">
+        <div class="courses-content">
+          <header class="courses-header"></header>
+
+          <div class="video-container">
+            <video id="videoPlayer" controls>
+              <source id="videoSource" src="./src/video/beginners/1.mp4" type="video/mp4" />
+              Ваш браузер не поддерживает видео элемент.
+            </video>
+            <div class="playlist-container">
+              <ul id="playlist">
+                <li data-src="./src/video/beginners/1.mp4" class="active">
+                  Урок 1: Введение
+                </li>
+                <li data-src="./src/video/beginners/2.mp4">Видео 2</li>
+                <li data-src="./src/video/beginners/3.mp4">Видео 3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+            // Для beginners-eng.html
+document.addEventListener('DOMContentLoaded', () => {
+  const videoPlayer = document.getElementById('videoPlayer');
+  const videoSource = document.getElementById('videoSource');
+  const playlistItems = document.querySelectorAll('#playlist li');
+
+  // Проверяем, что элементы найдены
+  if (!videoPlayer || !videoSource || playlistItems.length === 0) {
+      console.error('Ошибка: Не найдены элементы videoPlayer, videoSource или playlistItems');
+      return;
+  }
+
+  // Функция для переключения видео
+  function switchVideo(src) {
+      videoSource.setAttribute('src', src);
+      videoPlayer.load();
+      videoPlayer.play().catch(error => {
+          console.error('Ошибка воспроизведения:', error);
+      });
+  }
+
+  // Обработчик клика по элементам плейлиста
+  playlistItems.forEach(item => {
+      item.addEventListener('click', () => {
+          // Убираем класс active у всех элементов
+          playlistItems.forEach(i => i.classList.remove('active'));
+          // Добавляем класс active к текущему
+          item.classList.add('active');
+          // Переключаем видео
+          const src = item.dataset.src;
+          if (src) {
+              switchVideo(src);
+          } else {
+              console.error('Ошибка: data-src не найден для элемента', item);
+          }
+      });
+  });
+
+  // Устанавливаем первое видео как активное при загрузке
+  if (playlistItems.length > 0) {
+      const firstVideoSrc = playlistItems[0].dataset.src || videoSource.getAttribute('src');
+      if (firstVideoSrc) {
+          playlistItems[0].classList.add('active');
+          switchVideo(firstVideoSrc);
+      }
+  }
+});
+
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

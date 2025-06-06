@@ -23,14 +23,14 @@
             <div class="header-profile-info">
               <div class="user-info">
                 <div class="user-info__main">
-                  <img src="./img/avatar.jpg" alt="avatar" class="avatar" />
+                  <img src="./src/img/avatar.jpg" alt="avatar" class="avatar" />
                   <span class="user-name">Ахмед<br />Malachiyev</span>
                 </div>
 
                 <div class="user-card">
                   <div class="completed-card card-stat">
                     <img
-                      src="./img/completed.svg"
+                      src="./src/img/completed.svg"
                       alt=""
                       class="completed-image card-stat__image"
                     />
@@ -42,7 +42,7 @@
 
                   <button class="level-skill card-stat">
                     <img
-                      src="./img/skill.svg"
+                      src="./src/img/skill.svg"
                       alt=""
                       class="level-skill__image card-stat__image"
                     />
@@ -54,7 +54,7 @@
                     >
                     <a href="#" class="user-card__more">
                       <img
-                        src="./img/more.svg"
+                        src="./src/img/more.svg"
                         alt="Больше"
                         class="more-image"
                       />
@@ -66,7 +66,7 @@
                       >Связаться c наставником</a
                     >
                     <img
-                      src="./img/arrow-grey.svg"
+                      src="./src/img/arrow-grey.svg"
                       alt="arrow"
                       class="caht-arrow"
                     />
@@ -77,7 +77,7 @@
               <div class="container-activity" id="container-activity">
                 <table id="activity">
                   <caption>
-                    Активность за Май
+                    Активность за Июнь
                   </caption>
                   <tr>
                     <th>Пн</th>
@@ -101,32 +101,60 @@
           </header>
           <div class="courses">
             <ul class="courses__list">
-              <li class="courses__item">
-                <img src="" alt="" class="courses__image">
-                <h2 class="courses__title">Английский</h2>
-                <div class="progress-bar">
-                  <div class="progress-fill"></div>
-                </div>
-                <div class="progress-text">Просмотрено 0/10 уроков</div>
-                  <button class="courses__button">Продолжить</button>
-                </div>
+              <li class="courses__item" data-course-id="english_beginners_1">
+                <img
+                  src="./src/img/Beginners-2.png"
+                  alt="Английский для начинающих"
+                  class="courses__image"
+                  loading="lazy"
+                />
+
+                <div class="progress-text">Просмотрено 0/10</div>
+                <h2 class="courses__title">Английский для начинающих</h2>
+                <button class="courses__button">Продолжить</button>
+              </li>
+              <li class="courses__item" data-course-id="english_beginners_2">
+                <img
+                  src="./src/img/Beginners-2.png"
+                  alt="Английский для начинающих"
+                  class="courses__image"
+                  loading="lazy"
+                />
+
+                <div class="progress-text">Просмотрено 0/10</div>
+                <h2 class="courses__title">Английский для начинающих</h2>
+                <button class="courses__button">Продолжить</button>
               </li>
               <li class="courses__item">
-                <img src="" alt="" class="courses__image">
-                <h2 class="courses__title">Английский</h2>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 0%; background: rgb(255, 77, 77);"></div>
-                </div>
-                <div class="progress-text">Просмотрено 0/10 уроков</div>
-                  <button class="courses__button" style="background: rgb(0, 123, 255);">Продолжить</button>
-                </li>
+                <img
+                  src="./src/img/Beginners-2.png"
+                  alt=""
+                  class="courses__image"
+                />
+
+                <div class="progress-text">Просмотрено 0/10</div>
+                <h2 class="courses__title">Английский для начинающих</h2>
+                <button class="courses__button">Продолжить</button>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- <script>
+      // Для index.html
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".courses__button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const courseItem = button.closest(".courses__item");
+            const courseId = courseItem.dataset.courseId || "default";
+            window.location.href = `beginners-eng.html?course=${courseId}`;
+          });
+        });
+      });
+    </script> -->
     <script src="./js/script.js"></script>
   </body>
 </html>
-#4d5064
