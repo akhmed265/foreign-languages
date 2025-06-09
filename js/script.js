@@ -87,7 +87,7 @@ table.appendChild(row);
 //Activity END//
 
 
-// Для index.html
+// Для index.html//
 document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.courses__button');
   buttons.forEach(button => {

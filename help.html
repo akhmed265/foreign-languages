@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"/>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Помощь</title>
+</head>
+<body>
+  <div class="container">
+    <div id="sidebar-container" class="left-menu__container"></div>
+
+    <div class="main-container">
+      <div class="help-content">
+        <h1 class="help__title">Помощь</h1>
+
+        <ul class="help__social">
+          <li class="help__cards">
+            <div class="card__image-container">
+              <img src="./src/img/telegram.svg" alt="telegram" class="help__image">
+            </div>
+            <h2 class="card__title">Чат поддержки</h2>
+            <p class="card__description">
+              Вы можете обратиться за технической поддержкой через чат бота Telegram
+            </p>
+            <a href="#" class="card__link">Открыть чат</a>
+          </li>
+          <li class="help__cards">
+            <div class="card__image-container">
+              <img src="./src/img/gmail.svg" alt="gmail" class="help__image">
+            </div>
+            <h2 class="card__title">Email поддержки</h2>
+            <p class="card__description">
+              По техническим вопросам пишите на<br>
+              <a href="" style="color: #ff6b6b;">ahmedmalacievd4@gmail.com</a>
+            </p>
+            <a href="#" class="card__link">Написать</a>
+          </li>
+        </ul>
+
+        <div class="faq-container">
+          <div class="faq-item">
+              <div class="faq-question">Как зарегистрироваться на сайте?</div>
+              <div class="faq-answer">
+                  Для регистрации нажмите на кнопку "Регистрация" в верхнем правом углу, заполните форму с вашими данными и подтвердите email.
+              </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question">Как восстановить пароль?</div>
+              <div class="faq-answer">
+                  Нажмите "Забыли пароль?" на странице входа, введите ваш email, и мы отправим вам ссылку для сброса пароля.
+              </div>
+          </div>
+          <div class="faq-item">
+              <div class="faq-question">Какие способы оплаты доступны?</div>
+              <div class="faq-answer">
+                  Мы принимаем банковские карты, электронные кошельки и банковские переводы. Подробности в разделе "Оплата".
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const isActive = answer.classList.contains('active');
+
+          // Закрываем все открытые ответы
+          document.querySelectorAll('.faq-answer').forEach(ans => {
+              ans.classList.remove('active');
+          });
+          document.querySelectorAll('.faq-question').forEach(q => {
+              q.classList.remove('active');
+          });
+
+          // Открываем текущий, если он не был активен
+          if (!isActive) {
+              answer.classList.add('active');
+              question.classList.add('active');
+          }
+      });
+  });
+  </script>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
