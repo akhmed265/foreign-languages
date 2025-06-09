@@ -268,11 +268,11 @@ th {
 
 td {
   border: none;
-  background-color: none; /* Базовый цвет для пустых ячеек */
+  background-color: none;
   position: relative;
-  cursor: default; /* Указывает на интерактивность */
+  cursor: default;
 }
-/* Стили для тултипа */
+
 td[title]:hover:after {
   content: attr(title);
   position: absolute;
@@ -288,13 +288,12 @@ td[title]:hover:after {
   pointer-events: none;
   z-index: 10;
 }
-/* Стили для текущего дня */
+
 .today {
   font-weight: bold;
   border: 2px solid #ff6b6b; /* Яркая рамка для выделения */
-  box-sizing: border-box; /* Чтобы рамка не увеличивала размер ячейки */
 }
-/* Стили для будущих дней */
+
 .future {
   background-color: transparent !important; /* Прозрачный фон */
   opacity: 0.5; /* Полупрозрачный текст для отличия */
@@ -667,4 +666,64 @@ video {
     margin-left: 0;
     width: 100%;
   }
+}
+
+/*PROFILE*/
+.profile__info {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.profile__avatar {
+  width: 125px;
+  height: 125px;
+  margin-right: 35px;
+}
+
+.profile__info_flex {
+  display: flex;
+  flex-direction: column;
+  text-align-last: left;
+  gap: 10px;
+}
+
+.profile__info .user-name {
+  font-size: 30px;
+}
+
+.edit-profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  color: #4d5064;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 100px;
+}
+
+.edit-profile:hover {
+  color: #ff6b6b;
+}
+
+.edit-img path{
+  transition: all 0.3s ease;
+}
+
+.edit-profile:hover .edit-img path{
+  fill: #ff6b6b;
+}
+
+.profile-activity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+  width: 100%;
+}
+
+.profile__activity__title {
+  font-size: 20px;
 }
